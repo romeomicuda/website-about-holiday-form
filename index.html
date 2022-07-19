@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang='sk'>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>
+        Home
+    </title>
+</head>
+
+<body>
+    <Header>
+        <h1>TravelAnywhere</h1>
+    </Header>
+    <h1>Order</h1>
+
+    <div class='content'>
+        <form name="myForm" onsubmit="return validateForm();" action="https://iolab.sk/form2mail/form2mail.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="apikey" value="0cc014a7abce1cac1d9a56d1a48b8b69">
+            <input type="hidden" name="from" value="xmicuda@stuba.sk">
+            <input type="hidden" name="sender" value="">
+            <input type="hidden" name="to" value="feistu02@gmail.com">
+            <input type="hidden" name="subject" value="Cestovná agentúra TravelAnywhere">
+            <input type="hidden" name="redirectOk" value="https://webte1.fei.stuba.sk/~xmicuda/gsdoijoi_projekt3/redirectOK.html">
+            <input type="hidden" name="redirectFalse" value="https://webte1.fei.stuba.sk/~xmicuda/gsdoijoi_projekt3/redirectFalse.html">
+            <h2>
+                Customer information
+            </h2>
+            <div class="row">
+                <div>
+                    <h3>Name</h3>
+                    <input type="text" name='Name' id='name' placeholder="First name">
+                </div>
+                
+                <div>
+                    <h3>* Surname</h3>
+                    <input type="text" required name='Surname' onchange="requiredInput()" id='surname' placeholder="Surname"><br>
+                    <span id="requiredSurname">Required input</span><br>
+                </div>
+
+                <div>
+                    <h3>* Age</h3>
+                    <input type="number" required onchange="controlBirthdayAndAge(); requiredInput();" name='Age' id='age'><br>
+                    <span id="requiredAge">Required input</span><br>
+                    <span id="ageError">Data does not match date of birth</span><br>
+                </div>
+
+                <div>
+                    <h3>* Birthday</h3>
+                    <input type="date" required onchange="controlBirthdayAndAge(); requiredInput();" name='Birthday' id='birthday'><br>
+                    <span id="requiredBirthday">Required input</span><br>
+                    <span id="birthdayError">Data do not match age</span><br>
+
+                </div>
+
+                <div>
+                    <h3>* E-mail</h3>
+                    <input type="text" required onchange="controlEmail(); requiredInput();" name='E-mail' id='email' placeholder="name@example.com" pattern="^.{3,}@.*\..{2,4}$"><br>
+                    <span id="requiredEmail">Required input</span><br>
+                    <span id="emailError">Incorrect format</span><br>
+
+                </div>
+
+                <div>
+                    <h3>* Telephone number</h3>
+                    <input type="text" required name='Telephone Number' onchange="requiredInput();" id='telephoneNumber'><br>
+                    <span id="requiredTelephoneNumber">Required input</span><br>
+                </div>
+            </div>
+            <h2>Holiday destination</h2>
+            <div class="row">
+                <div>
+                    <h3>Continents</h3>
+                    <select name="Continents" id="continents">
+                      <option value="" selected="selected" disabled>Please select</option>
+                </select>
+                </div>
+                <div>
+                    <h3>State</h3>
+                    <select name="State" id="state">
+                      <option value="" selected="selected" disabled>Please select</option>
+                </select>
+                </div>
+                <div>
+                    <h3>City</h3>
+                    <select name="City" id="city">
+                      <option value="" selected="selected" disabled>Please select</option>
+                </select>
+                </div>
+            </div>
+
+            <div>
+                <h2>Select a payment method</h2>
+                <div>
+                    <input type="radio" id="cash" onchange="showOptions();" name="Payment method" value="cash" checked>
+                    <label for="cash">Cash</label>
+                </div>
+                <div>
+                    <input type="radio" id="bank_transfer" onchange="showOptions();" name="Payment method" value="bank transfer">
+                    <label for="bank_transfer">Bank transfer</label>
+                </div>
+                <div>
+                    <input type="radio" id="bitcoin" onchange="showOptions();" name="Payment method" value="Bitcoin">
+                    <label for="bitcoin">Bitcoin</label>
+                </div>
+                <div>
+                    <input type="radio" id="ethereum" onchange="showOptions();" name="Payment method" value="Ethereum">
+                    <label for="ethereum">Ethereum</label>
+                </div>
+                <div>
+                    <input type="radio" id="paymentCard" onchange="showOptions();" name="Payment method" value="payment card">
+                    <label for="paymentCard">Payment card</label>
+                    <div class="row">
+                        <div class="magic">
+                            <label for="CardNumber">Card Number</label>
+                            <input type="number" id="CardNumber" name="Card Number" placeholder="Card Number">
+                        </div>
+                        <div class="magic">
+                            <label for="ExpiryDate">Expiry Date</label>
+                            <input type="month" id="ExpiryDate" name="Expiry Date">
+                        </div>
+                        <div class="magic">
+                            <label for="CVCCode">CVC Code</label>
+                            <input type="number" id="CVCCode" name="CVC Code" placeholder="CVC Code">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="radio" id="radioCryptocurrency" onchange="showOptions()" name="payment method" value="other cryptocurrency">
+                    <label for="radioCryptocurrency">Other Cryptocurrency</label><br>
+                    <textarea id="textAreaCryptocurrency" class="hide" name="Other Cryptocurrency" rows="2" cols="20"></textarea>
+                </div>
+            </div>
+            <br>
+            <div>
+                <h2>Where have you been to?</h2>
+                <div>
+                    <input type="checkbox" id="USA" name="State" value="United States">
+                    <label for="USA">United States</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="UK" name="State" value="United Kingdom">
+                    <label for="UK">United Kingdom</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="HRV" name="State" value="Croatia">
+                    <label for="HRV">Croatia</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ITA" name="State" value="Italy">
+                    <label for="ITA">Italy</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="GR" name="State" value="Greece">
+                    <label for="GR">Greece</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="checkboxCountryOther" name="State">
+                    <label for="checkboxCountryOther">Other</label><br>
+                    <input type="text" id="textCountryOther" name="Other Country" value="other">
+                </div>
+                <div>
+                    <button type="submit">Finish order</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer>
+        2021 &copy; Designed by Roman Mičuda
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+header,
+h1 {
+    text-align: center;
+}
+
+span {
+    color: red;
+}
+
+body {
+    background-image: url("../pics/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="month"] {
+    height: 50px;
+    width: 100%;
+}
+
+input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+textarea {
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+.content {
+    border-radius: 10px;
+    width: 100%;
+    min-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: #f2f2f2;
+    opacity: 1;
+}
+
+div {
+    padding: 5px;
+}
+
+.row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+@media (min-width: 768px) {
+    .content {
+        width: 720px;
+    }
+    .row {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .content {
+        width: 1140px;
+    }
+    .row {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #3057c5c0;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+button:hover {
+    background-color: #4000f0;
+}
+
+button:active {
+    background-color: #3058c5;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.hide {
+    visibility: hidden;
+    display: none;
+}
+
+footer {
+    padding: 30px;
+    font-size: 20px;
+    text-align: center;
+}
